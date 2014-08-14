@@ -20,14 +20,3 @@ fi
 if [ -d "$HOME/bin" ] ; then
     PATH="$HOME/bin:$PATH"
 fi
-
-# Always use a screen session until we can fix SSH timeouts.
-# This also starts the dev server immediately unless a screen is
-# already running.
-status=`screen -list | head -1 | cut -d" " -f 1,2`
-if [ "$status" == "No Sockets" ]; then
-    screen ./project/vagrant/bin/start.sh -DR
-else
-    # A screen is probably already running so don't start the server.
-    screen -DR
-fi
