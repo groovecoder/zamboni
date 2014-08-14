@@ -1,6 +1,14 @@
+SELECT @available_group_id := MAX(id)+1 FROM groups;
+
 INSERT INTO groups (id, name, rules, notes, created, modified) VALUES
-  (50052, 'Add-on Reviewer MOTD', 'AddonReviewerMOTD:Edit', '', NOW(), NOW());
+  (@available_group_id, 'Add-on Reviewer MOTD', 'AddonReviewerMOTD:Edit', '', NOW(), NOW());
+
+SELECT @available_group_id := MAX(id)+1 FROM groups;
+
 INSERT INTO groups (id, name, rules, notes, created, modified) VALUES
-  (50053, 'App Reviewer MOTD', 'AppReviewerMOTD:Edit', '', NOW(), NOW());
+  (@available_group_id, 'App Reviewer MOTD', 'AppReviewerMOTD:Edit', '', NOW(), NOW());
+
+SELECT @available_group_id := MAX(id)+1 FROM groups;
+
 INSERT INTO groups (id, name, rules, notes, created, modified) VALUES
-  (50054, 'Persona Reviewer MOTD', 'PersonaReviewerMOTD:Edit', '', NOW(), NOW());
+  (@available_group_id, 'Persona Reviewer MOTD', 'PersonaReviewerMOTD:Edit', '', NOW(), NOW());
