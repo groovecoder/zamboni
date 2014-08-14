@@ -71,9 +71,18 @@ runs initialization scripts.
 Start The Dev Server
 --------------------
 
-Now that your VM is running, SSH in and start the server::
+Now that your VM is running, SSH in::
 
     vagrant ssh
+
+Install all python requirements in the vm::
+
+    sudo pip install --no-deps --download-cache=/tmp/pip-cache -r
+    project/requirements/dev.txt --find-links
+    https://pyrepo.addons.mozilla.org/
+
+and start the server::
+
     ./project/vagrant/bin/start.sh
 
 On your first run, this will take several minutes because it pulls down some
