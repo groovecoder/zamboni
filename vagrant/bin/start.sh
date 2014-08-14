@@ -6,7 +6,7 @@ cd ~/project
 echo "Seeding product details JSON..."
 ./scripts/seed-prod-details.sh
 echo "Checking for DB migrations..."
-python schematic migrations/
+schematic migrations/
 if [ $? -eq 0 ]; then
     echo "Running python manage.py runserver 0.0.0.0:8000"
     python manage.py runserver 0.0.0.0:8000
