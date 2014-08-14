@@ -75,11 +75,12 @@ Now that your VM is running, SSH in::
 
     vagrant ssh
 
-Install all python requirements in the vm::
+Install all python requirements in a virtualenv::
 
-    sudo pip install --no-deps --download-cache=/tmp/pip-cache -r
-    project/requirements/dev.txt --find-links
-    https://pyrepo.addons.mozilla.org/
+    sudo pip install virtualenv
+    virtualenv env
+    source env/bin/activate
+    sudo pip install --no-deps --download-cache=/tmp/pip-cache -r project/requirements/dev.txt --find-links https://pyrepo.addons.mozilla.org/
 
 and start the server::
 
